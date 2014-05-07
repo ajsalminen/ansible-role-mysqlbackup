@@ -1,0 +1,4 @@
+---
+# file: mysql/tasks/main.yml
+
+- include: mysql.yml
