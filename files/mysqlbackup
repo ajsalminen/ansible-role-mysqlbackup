@@ -1,5 +1,5 @@
 #!/bin/sh
 umask 077
-mysqldump --defaults-extra-file=/etc/mysql/debian.cnf --single-transaction --events --skip-dump-date --routines --opt --triggers --all-databases > /var/backups/mysql-databases.sql 
+mysqldump --defaults-extra-file=/etc/mysql/debian.cnf --single-transaction --events --skip-dump-date --routines --opt --triggers --all-databases --result-file=/var/backups/mysql-databases.sql 
 
 

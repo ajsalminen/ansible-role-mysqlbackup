@@ -1,14 +1,2 @@
-  - name: Install packages
-    action: apt pkg={{item}} update_cache=yes cache_valid_time=72000 state=present
-    with_items:
-       - mysql-server
-       - python-mysqldb
-
-  - name: Link debian-sys-maint mysql config to root's mysql config
-    file: src=/etc/mysql/debian.cnf dest=/root/.my.cnf owner=root group=root state=link
-
-  - name: Copy my.cnf
-    template: src=my.cnf.j2 dest=/etc/mysql/my.cnf owner=root group=root mode=0644
-
   - name: Copy mysqlbackup script to cron.daily
     copy: src=mysqlbackup dest=/etc/cron.daily/mysqlbackup owner=root group=root mode=0755
