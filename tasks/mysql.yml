@@ -1,2 +1,7 @@
-  - name: Copy mysqlbackup script to cron.daily
-    copy: src=mysqlbackup dest=/etc/cron.daily/mysqlbackup owner=root group=root mode=0755
+- name: Copy mysqlbackup script to host
+  copy: src=mysqlbackup dest=/usr/local/sbin/mysqlbackup owner=root group=root mode=0755
+
+- name: Remove old cron
+  file:
+    name: /etc/cron.daily/mysqlbackup
+    state: absent
